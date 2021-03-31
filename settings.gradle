@@ -1,0 +1,6 @@
+include ':asm-transform'
+include ':apt-processor'
+include ':apt-annotation'
+include ':Annotationtest'
+include ':app'
+rootProject.name = "MyTestDemo"

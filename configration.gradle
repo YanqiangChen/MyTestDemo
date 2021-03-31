@@ -1,0 +1,3 @@
+/**配置模块是否独立运行**/
+def isSingleCompile = true
+ext.isSingleCompile = isSingleCompile

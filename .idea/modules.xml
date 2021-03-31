@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MyTestDemo.iml" filepath="$PROJECT_DIR$/.idea/modules/MyTestDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Annotationtest/MyTestDemo.Annotationtest.iml" filepath="$PROJECT_DIR$/.idea/modules/Annotationtest/MyTestDemo.Annotationtest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MyTestDemo.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MyTestDemo.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apt-annotation/MyTestDemo.apt-annotation.iml" filepath="$PROJECT_DIR$/.idea/modules/apt-annotation/MyTestDemo.apt-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apt-processor/MyTestDemo.apt-processor.iml" filepath="$PROJECT_DIR$/.idea/modules/apt-processor/MyTestDemo.apt-processor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/asm-transform/MyTestDemo.asm-transform.iml" filepath="$PROJECT_DIR$/.idea/modules/asm-transform/MyTestDemo.asm-transform.iml" />
+    </modules>
+  </component>
+</project>
