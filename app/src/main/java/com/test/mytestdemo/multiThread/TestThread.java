@@ -15,12 +15,38 @@ public class TestThread {
 
 
     public void test(){
-        OneThread oneThread=new OneThread();
-        TwoThread twoThread=new TwoThread();
-        oneThread.start();
-        twoThread.start();
-        sThreadLocal.get();
+//        OneThread oneThread=new OneThread();
+//        TwoThread twoThread=new TwoThread();
+//        oneThread.start();
+//        twoThread.start();
+//        sThreadLocal.get();
+
+        try {
+            ThreadTest t1=new ThreadTest("A");
+            ThreadTest t2=new ThreadTest("B");
+            t1.start();
+            t1.join();
+            t2.start();
+        } catch (Exception e){
+
+        }
+
+
     }
+
+
+    class ThreadTest extends Thread {
+        private String name;
+        public ThreadTest(String name){
+            this.name=name;
+        }
+        public void run(){
+            for(int i=1;i<=50;i++){
+                Log.e("Thread",name+"-"+i);
+            }
+        }
+    }
+
     public static class OneThread extends Thread{
         @Override
         public void run() {
