@@ -3,7 +3,6 @@ package com.test.mytestdemo.multiThread;
 import android.util.Log;
 
 import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class TestThread {

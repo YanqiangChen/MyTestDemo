@@ -11,7 +11,10 @@ import com.test.mytestdemo.annotation.BindViewTool;
 import com.test.mytestdemo.annotation.InjectTimeStatistics;
 import com.test.mytestdemo.annotation.MyTest;
 import com.test.mytestdemo.annotation.Test;
+import com.test.mytestdemo.arithmetic.Calculate;
 import com.test.mytestdemo.multiThread.TestThread;
+import com.test.mytestdemo.multiThread.ThreadLocalTest;
+import com.test.mytestdemo.multiThread.ThreadPool2;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -31,7 +34,12 @@ public class MainActivity extends AppCompatActivity {
 //        getView();
         BindViewTool.bind(this);
         btn.setText("SBB");
-        new TestThread().test();
+        int[] maxArray = new int[]{-2,1,-3,4,-1,2,1,-5,4};
+        int test=new Calculate().maxSubArray2(maxArray);
+//        new ThreadPool2().test();
+        int[] arr = new int[]{3,2,1,0,4};
+        new Calculate().dumpTo(arr);
+        new ThreadLocalTest().test();
 
     }
 
