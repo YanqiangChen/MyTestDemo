@@ -1,6 +1,8 @@
 package com.test.mytestdemo.arithmetic;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class Calculate {
@@ -158,6 +160,137 @@ public class Calculate {
 
 
     }
+
+    //merge区间
+    //intervals = [[1,3],[2,6],[8,10],[15,18]]
+    //[[1,6],[8,10],[15,18]]
+    public int[][] merge(int[][] intervals){
+        int[][] intervalsNew=new int[intervals.length][2];
+        int j=0;
+        for(int i=0;i<intervals.length;i++){
+            if(i+1<intervals.length){
+                if(intervals[i][1]>intervals[i+1][0]){
+                    intervalsNew[j][0]=intervals[i][0];
+                    intervalsNew[j][1]=intervals[i+1][1];
+                    i++;
+                }else{
+                    intervalsNew[j][0]=intervals[i][0];
+                    intervalsNew[j][1]=intervals[i][1];
+                }
+            }else{
+                intervalsNew[j][0]=intervals[i][0];
+                intervalsNew[j][1]=intervals[i][1];
+            }
+            j++;
+
+        }
+        return intervalsNew;
+
+
+    }
+    //merge区间
+    //intervals = [[1,3],[2,6],[8,10],[15,18]]
+    //[[1,6],[8,10],[15,18]]
+    public int[][] merge2(int[][] intervals) {
+        if (intervals.length == 0) {
+            return new int[0][2];
+        }
+        Arrays.sort(intervals, new Comparator<int[]>() {
+            public int compare(int[] interval1, int[] interval2) {
+                return interval1[0] - interval2[0];
+            }
+        });
+        List<int[]> merged = new ArrayList<int[]>();
+        for (int i = 0; i < intervals.length; ++i) {
+            int L = intervals[i][0], R = intervals[i][1];
+            if (merged.size() == 0 || merged.get(merged.size() - 1)[1] < L) {
+                merged.add(new int[]{L, R});
+            } else {
+                merged.get(merged.size() - 1)[1] = Math.max(merged.get(merged.size() - 1)[1], R);
+            }
+        }
+        return merged.toArray(new int[merged.size()][]);
+    }
+
+    //插入区间
+    //intervals = [[1,3],[6,9]], newInterval = [2,5]
+    //[[1,5],[6,9]]
+    public int[][] addToIntervals(int[][] intervals,int[] interval){
+        Arrays.sort(intervals, new Comparator<int[]>() {
+            public int compare(int[] interval1, int[] interval2) {
+                return interval1[0] - interval2[0];
+            }
+        });
+        boolean hasAdd=false;
+        List<int[]> merged = new ArrayList<int[]>();
+        for(int i=0;i<intervals.length;i++){
+            int L = intervals[i][0], R = intervals[i][1];
+            if(!hasAdd){
+                if(interval[0]>R){
+                    merged.add(new int[]{L,R});
+                }else if(L>interval[1]){
+                    merged.add(interval);
+                    merged.add(new int[]{L,R});
+                    hasAdd=true;
+                }else {
+                    merged.add(new int[]{Math.min(L,interval[0]) , Math.max(R,interval[1])});
+                    hasAdd=true;
+                }
+
+            }else{
+                if (merged.size() == 0 || merged.get(merged.size() - 1)[1] < L) {
+                    merged.add(new int[]{L, R});
+                } else {
+                    merged.get(merged.size() - 1)[1] = Math.max(merged.get(merged.size() - 1)[1], R);
+                }
+            }
+
+
+        }
+        if(!hasAdd){
+            merged.add(interval);
+        }
+
+        return merged.toArray(new int[merged.size()][]);
+
+
+    }
+
+    //n = 3
+    //[[1,2,3],[8,9,4],[7,6,5]]
+    public int[][] generateMatrix(int n) {
+        int num = 1;
+        int[][] matrix = new int[n][n];
+        int left = 0, right = n - 1, top = 0, bottom = n - 1;
+        while (left <= right && top <= bottom) {
+            for (int column = left; column <= right; column++) {
+                matrix[top][column] = num;
+                num++;
+            }
+            for (int row = top + 1; row <= bottom; row++) {
+                matrix[row][right] = num;
+                num++;
+            }
+            if (left < right && top < bottom) {
+                for (int column = right - 1; column > left; column--) {
+                    matrix[bottom][column] = num;
+                    num++;
+                }
+                for (int row = bottom; row > top; row--) {
+                    matrix[row][left] = num;
+                    num++;
+                }
+            }
+            left++;
+            right--;
+            top++;
+            bottom--;
+        }
+        return matrix;
+    }
+
+
+
 
 
 }

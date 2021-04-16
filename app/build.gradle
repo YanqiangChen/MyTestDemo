@@ -39,6 +39,9 @@ dependencies {
     implementation project(":apt-annotation")
     // 指定注释处理器
     annotationProcessor project(":apt-processor")
+    
+    implementation 'com.google.code.gson:gson:2.8.6'
+
 
 
 }

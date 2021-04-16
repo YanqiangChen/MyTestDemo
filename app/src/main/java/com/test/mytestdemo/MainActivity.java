@@ -1,8 +1,12 @@
 package com.test.mytestdemo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import com.rmondjone.annotation.BindView;
@@ -15,9 +19,13 @@ import com.test.mytestdemo.arithmetic.Calculate;
 import com.test.mytestdemo.multiThread.TestThread;
 import com.test.mytestdemo.multiThread.ThreadLocalTest;
 import com.test.mytestdemo.multiThread.ThreadPool2;
+import com.test.mytestdemo.serializable.SerializableTest;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,13 +42,33 @@ public class MainActivity extends AppCompatActivity {
 //        getView();
         BindViewTool.bind(this);
         btn.setText("SBB");
+
         int[] maxArray = new int[]{-2,1,-3,4,-1,2,1,-5,4};
         int test=new Calculate().maxSubArray2(maxArray);
 //        new ThreadPool2().test();
         int[] arr = new int[]{3,2,1,0,4};
-        new Calculate().dumpTo(arr);
-        new ThreadLocalTest().test();
 
+        new Calculate().generateMatrix(3);
+        new ThreadLocalTest().test();
+//        [[1,2],[3,5],[6,7],[8,10],[12,16]]
+//[4,8]
+        int[][] arrMerge=new int[][]{{1,2},{3,5},{6,7},{8,10},{12,16}};
+        new Calculate().addToIntervals(arrMerge,new int[]{4,8});
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SerializableTest().deserializeStudent();
+            }
+        });
+        checkPermission();
+    }
+    public void checkPermission(){
+        int permission = ActivityCompat.checkSelfPermission(MainActivity.this,
+                WRITE_EXTERNAL_STORAGE);
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            String[] str=new String[]{READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE};
+            ActivityCompat.requestPermissions(MainActivity.this, str, 1);
+        }
     }
 
     //注解
