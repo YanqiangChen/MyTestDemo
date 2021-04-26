@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: MyTestDemo.apt-annotation.apt-annotation">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/apt-annotation/build/libs/apt-annotation.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
