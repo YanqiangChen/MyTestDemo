@@ -58,9 +58,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new SerializableTest().deserializeStudent();
+                new com.test.mytestdemo.reflection.Test().test9();
             }
         });
         checkPermission();
+
     }
     public void checkPermission(){
         int permission = ActivityCompat.checkSelfPermission(MainActivity.this,
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             String[] str=new String[]{READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE};
             ActivityCompat.requestPermissions(MainActivity.this, str, 1);
         }
+
     }
 
     //注解

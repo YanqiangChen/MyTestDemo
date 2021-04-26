@@ -31,9 +31,26 @@ public class GsonTest {
 //        Book book = gson.fromJson(Book.json, Book.class);
 //        System.out.println(book);
 
+//        final GsonBuilder gsonBuilder = new GsonBuilder();
+//        gsonBuilder.registerTypeAdapter(Book.class, new BookTypeAdapter());
+//        final Gson gson = gsonBuilder.create();
+
+        // Configure GSON
         final GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(Book.class, new BookTypeAdapter());
+        gsonBuilder.registerTypeAdapter(LargeData.class, new LargeDataSerialiser());
+        gsonBuilder.setPrettyPrinting();
         final Gson gson = gsonBuilder.create();
+        final LargeData data = new LargeData();
+        data.create(10485760);
+        final String json = gson.toJson(data);
+
+    }
+    public void gsonTest(){
+        String jsonString = "{\"name\":\"renyiguang\"}";
+        Gson gson = new Gson();
+        Book book = gson.fromJson(jsonString, Book.class);
+
+
 
     }
 }
