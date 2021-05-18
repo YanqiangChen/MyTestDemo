@@ -67,10 +67,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 new SerializableTest().deserializeStudent();
                 new com.test.mytestdemo.reflection.Test().test9();
-                new com.test.mytestdemo.myview.Test().testValue(findViewById(R.id.iv_girl),(ImageView) findViewById(R.id.iv_girl));
-//                new com.test.mytestdemo.myview.Test().testValue2(findViewById(R.id.iv_girl));
                 Intent intent=new Intent(MainActivity.this, RecyclerViewActivity.class);
                 startActivity(intent);
+                new com.test.mytestdemo.myview.Test().testValue(findViewById(R.id.iv_girl),(ImageView) findViewById(R.id.iv_girl));
+//                new com.test.mytestdemo.myview.Test().testValue2(findViewById(R.id.iv_girl));
+//                Intent intent=new Intent(MainActivity.this, RecyclerViewActivity.class);
+//                startActivity(intent);
 
             }
         });
@@ -82,7 +84,13 @@ public class MainActivity extends AppCompatActivity {
         });
         checkPermission();
         iniGestureListener();
+        goToTest();
 
+    }
+
+    public void goToTest(){
+        Intent intent=new Intent(this,TestActivity.class);
+        startActivity(intent);
     }
 
 
