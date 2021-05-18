@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/apt-annotation/MyTestDemo.apt-annotation.iml" filepath="$PROJECT_DIR$/.idea/modules/apt-annotation/MyTestDemo.apt-annotation.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/apt-processor/MyTestDemo.apt-processor.iml" filepath="$PROJECT_DIR$/.idea/modules/apt-processor/MyTestDemo.apt-processor.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/asm-transform/MyTestDemo.asm-transform.iml" filepath="$PROJECT_DIR$/.idea/modules/asm-transform/MyTestDemo.asm-transform.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/recyclerItem2/MyTestDemo.recyclerItem2.iml" filepath="$PROJECT_DIR$/.idea/modules/recyclerItem2/MyTestDemo.recyclerItem2.iml" />
     </modules>
   </component>
 </project>

@@ -20,6 +20,7 @@ import com.test.mytestdemo.arithmetic.Calculate;
 import com.test.mytestdemo.multiThread.TestThread;
 import com.test.mytestdemo.multiThread.ThreadLocalTest;
 import com.test.mytestdemo.multiThread.ThreadPool2;
+import com.test.mytestdemo.recyclerView2.RecyclerViewActivity;
 import com.test.mytestdemo.serializable.SerializableTest;
 
 import java.lang.reflect.Field;
@@ -60,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 new SerializableTest().deserializeStudent();
                 new com.test.mytestdemo.reflection.Test().test9();
+                Intent intent=new Intent(MainActivity.this, RecyclerViewActivity.class);
+                startActivity(intent);
             }
         });
         checkPermission();

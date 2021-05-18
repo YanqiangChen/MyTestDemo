@@ -4,4 +4,5 @@ include ':apt-annotation'
 include ':Annotationtest'
 include ':app'
 include ':app2'
+include ':recyclerItem2'
 rootProject.name = "MyTestDemo"

@@ -21,13 +21,11 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../apt-processor">
       <sourceFolder url="file://$MODULE_DIR$/../../../apt-processor/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../apt-processor/build/generated/sources/annotationProcessor/java/main" isTestSource="false" generated="true" />
       <excludeFolder url="file://$MODULE_DIR$/../../../apt-processor/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../../apt-processor/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="Gradle: MyTestDemo.apt-processor.apt-processor" level="project" />
     <orderEntry type="module" module-name="MyTestDemo.apt-annotation" />
     <orderEntry type="library" name="Gradle: com.squareup:javapoet:1.10.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.auto.service:auto-service:1.0-rc6" level="project" />

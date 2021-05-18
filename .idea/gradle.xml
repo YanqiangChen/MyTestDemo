@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/apt-annotation" />
             <option value="$PROJECT_DIR$/apt-processor" />
             <option value="$PROJECT_DIR$/asm-transform" />
+            <option value="$PROJECT_DIR$/recyclerItem2" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
