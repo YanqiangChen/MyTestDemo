@@ -2,12 +2,18 @@ package com.test.mytestdemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.rmondjone.annotation.BindView;
 import com.test.mytestdemo.annotation.BaseTest;
@@ -32,8 +38,10 @@ public class MainActivity extends AppCompatActivity {
     @BaseTest(R.id.btn_test)
     @BindView(R.id.btn_test)
     public Button btn;
+    private GestureDetector detector;
 
     @InjectTimeStatistics("test_123")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,11 +67,36 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 new SerializableTest().deserializeStudent();
                 new com.test.mytestdemo.reflection.Test().test9();
+                new com.test.mytestdemo.myview.Test().testValue(findViewById(R.id.iv_girl),(ImageView) findViewById(R.id.iv_girl));
+//                new com.test.mytestdemo.myview.Test().testValue2(findViewById(R.id.iv_girl));
+                Intent intent=new Intent(MainActivity.this, RecyclerViewActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        btn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return detector.onTouchEvent(event);
             }
         });
         checkPermission();
+        iniGestureListener();
 
     }
+
+
+    private void iniGestureListener() {
+        GestureDetector.SimpleOnGestureListener listener = new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                Toast.makeText(MainActivity.this, "double  click up!",Toast.LENGTH_SHORT);
+                return super.onDoubleTap(e);
+            }
+        };
+        detector = new GestureDetector(MainActivity.this, listener);
+    }
+
     public void checkPermission(){
         int permission = ActivityCompat.checkSelfPermission(MainActivity.this,
                 WRITE_EXTERNAL_STORAGE);
