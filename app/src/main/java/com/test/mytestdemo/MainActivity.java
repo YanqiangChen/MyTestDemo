@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
@@ -62,7 +63,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         checkPermission();
+        goToTest();
 
+    }
+
+    public void goToTest(){
+        Intent intent=new Intent(this,TestActivity.class);
+        startActivity(intent);
     }
     public void checkPermission(){
         int permission = ActivityCompat.checkSelfPermission(MainActivity.this,

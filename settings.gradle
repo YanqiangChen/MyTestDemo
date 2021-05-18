@@ -3,4 +3,5 @@ include ':apt-processor'
 include ':apt-annotation'
 include ':Annotationtest'
 include ':app'
+include ':app2'
 rootProject.name = "MyTestDemo"
