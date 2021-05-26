@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:background="@color/white">
 
 
     <com.test.mytestdemo.ui.CustomView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="test" />
+        android:text="test"
+        android:visibility="gone"/>
     <com.test.mytestdemo.ui.FlowLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone">
         <TextView
             style="@style/text_flag_01"
             android:text="Welcome" />
@@ -42,6 +45,67 @@
             android:text="I thick i can" />
 
     </com.test.mytestdemo.ui.FlowLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#987"
+        android:clipChildren="false"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="@color/purple_200"
+            android:clipChildren="false">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="350dp"
+                android:background="@color/white"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.AppCompat"
+        >
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/purple_200"
+        app:title="标题"
+        app:titleTextColor="@color/white"
+        android:id="@+id/tool_bar"
+        app:logo="@mipmap/ic_launcher"
+        app:subtitle="子标题"
+        app:subtitleTextColor="@color/white"
+
+        >
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="test" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 
 

@@ -106,7 +106,6 @@ public class FileChannelTest {
         }
         return 0;
 
-        return 0;
 
     }
 

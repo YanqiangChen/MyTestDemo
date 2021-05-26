@@ -23,6 +23,12 @@
         </activity>
         <activity android:name=".TestActivity"
             android:theme="@style/AppTheme">
+        </activity>
+        <activity android:name=".TestTabActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity android:name=".recyclerView2.RecyclerViewActivity"
+            android:theme="@style/AppTheme">
 
         </activity>
     </application>

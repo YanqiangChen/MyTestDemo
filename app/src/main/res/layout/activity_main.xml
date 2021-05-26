@@ -23,5 +23,29 @@
 
     </Button>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="test"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/et_test"
+            />
+        <EditText
+            android:id="@+id/et_test"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_test"
+            app:layout_constraintLeft_toRightOf="@+id/tv_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="test">
+
+        </EditText>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </LinearLayout>

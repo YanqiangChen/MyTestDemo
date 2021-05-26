@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.rmondjone.annotation.BindView;
 import com.test.mytestdemo.annotation.BaseTest;
 import com.test.mytestdemo.annotation.BindViewTool;
@@ -59,17 +60,28 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new SerializableTest().deserializeStudent();
-                new com.test.mytestdemo.reflection.Test().test9();
-                Intent intent=new Intent(MainActivity.this, RecyclerViewActivity.class);
-                startActivity(intent);
+//                new SerializableTest().deserializeStudent();
+//                new com.test.mytestdemo.reflection.Test().test9();
+//                Intent intent=new Intent(MainActivity.this, RecyclerViewActivity.class);
+//                startActivity(intent);
+                Snackbar.make(getWindow().getDecorView(), "This is a message", Snackbar.LENGTH_LONG).show();
+
+
+
+
             }
         });
         checkPermission();
-        goToTest();
+//        goToTest();
+        goToTab();
+
 
     }
 
+    public void goToTab(){
+        Intent intent=new Intent(MainActivity.this,TestTabActivity.class);
+        startActivity(intent);
+    }
     public void goToTest(){
         Intent intent=new Intent(this,TestActivity.class);
         startActivity(intent);
@@ -121,8 +133,6 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("sayHello="+annotation.name());
             }
         }
-
-
 
 
     }
