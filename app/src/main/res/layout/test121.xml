@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.AppCompat">
+
+            
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/main.collapsing"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="48dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                <ImageView
+                    android:id="@+id/main.backdrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/test2"
+                    app:layout_collapseMode="parallax"
+                    android:background="@color/white">
+
+                </ImageView>
+
+
+<!--                <androidx.appcompat.widget.Toolbar-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    app:title="toolbar"-->
+<!--                    app:layout_collapseMode="pin"-->
+<!--                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+<!--                    />-->
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+            
+            <com.google.android.material.tabs.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:theme="@style/Theme.AppCompat"
+                app:tabIndicatorColor="@color/cardview_shadow_start_color"
+                app:tabIndicatorHeight="4dp"
+                app:tabSelectedTextColor="@color/cardview_shadow_start_color"
+                app:tabTextColor="#fff">
+
+            </com.google.android.material.tabs.TabLayout>
+
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recyler_test"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+
+</LinearLayout>

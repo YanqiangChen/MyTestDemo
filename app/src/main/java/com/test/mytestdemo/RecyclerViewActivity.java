@@ -20,7 +20,7 @@ public class RecyclerViewActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test);
+        setContentView(R.layout.test121);
         mRecyclerView=findViewById(R.id.recyler_test);
         List<String> stringList=new ArrayList<>();
         for(int i=0;i<10;i++){
