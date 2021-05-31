@@ -5,4 +5,5 @@ include ':Annotationtest'
 include ':app'
 include ':app2'
 include ':recyclerItem2'
+include ':tablayout'
 rootProject.name = "MyTestDemo"

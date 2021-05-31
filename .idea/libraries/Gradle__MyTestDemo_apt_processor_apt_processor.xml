@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: MyTestDemo.apt-processor.apt-processor">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/apt-processor/build/libs/apt-processor.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
