@@ -7,10 +7,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -29,6 +33,7 @@ import com.test.mytestdemo.serializable.SerializableTest;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.List;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
@@ -39,9 +44,13 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.btn_test)
     public Button btn;
     private GestureDetector detector;
+    private Button mFloatingButton;
+    private WindowManager.LayoutParams mLayoutParams;
+    private WindowManager windowManager;
+
+
 
     @InjectTimeStatistics("test_123")
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +94,21 @@ public class MainActivity extends AppCompatActivity {
         checkPermission();
         iniGestureListener();
         goToTest();
+        mFloatingButton=new Button(this);
+        mFloatingButton.setText("button");
+        mLayoutParams = new WindowManager.LayoutParams(
+                WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.WRAP_CONTENT,0,0,
+                PixelFormat.TRANSPARENT);
+        mLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
+                | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED;
+        mLayoutParams.gravity = Gravity.LEFT | Gravity.TOP;
+        mLayoutParams.x = 100;
+        mLayoutParams.y = 300;
+        windowManager.addView(mFloatingButton,mLayoutParams);
+
+
+
 
     }
 
@@ -156,5 +180,33 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public void testZgyote(){
+        try {
+            String abi = "arm64-v8a";
+            //process        反射调用android.os.Process类，获取openZygoteSocketIfNeeded方法
+            Class<?> ProcessClazz = Class.forName("android.os.Process");
+            Method method = ProcessClazz.getDeclaredMethod("openZygoteSocketIfNeeded", String.class);
+            method.setAccessible(true);
+
+            //ZygoteState
+            Class<?> ZygoteStateClazz = Class.forName("android.os.Process$ZygoteState");
+            Field abilistfeild=ZygoteStateClazz.getDeclaredField("abiList");
+            abilistfeild.setAccessible(true);
+
+            //连接zygote，返回一个ZygoteState的对象
+            Object ZygoteStateobj=method.invoke(null,abi);
+
+            //获取ZygoteState的abiList值，他的值就是cpu的架构
+            List<String> abilist= (List<String>) abilistfeild.get(ZygoteStateobj);
+            for(int i = 0 ;i < abilist.size();i++){
+                Log.i("Zygote","hehe "+ " "+ abilist.get(i));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            e.getStackTrace();
+            Log.i("Zygote","error="+e.toString());
+        }
     }
 }
